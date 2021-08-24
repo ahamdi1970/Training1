@@ -15,34 +15,43 @@ public class MainActivity extends AppCompatActivity {
     Button btn;
     TextView email;
     TextView pwd;
+    private Object Button;
     private menulogin menulogin;
+    private String refemail, refpwd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn = (Button) findViewById(R.id.Button);
-        email = (TextView) findViewById(R.id.Email);
-        pwd = (TextView) findViewById(R.id.Password);
+        btn = findViewById(R.id.Button);
+        email = findViewById(R.id.Email);
+        pwd = findViewById(R.id.Password);
 
         btn.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View v) {
-                if (email.equals("admin@admin.com") && pwd.equals("admin"))
+                email.setOnClickListener(this);
+                pwd.setOnClickListener(this);
+                refemail = email.getText().toString();
+                refpwd = pwd.getText().toString();
+
+
+                if (refemail.equals("admin@admin.com") && refpwd.equals("admin")) {
                     Toast.makeText(MainActivity.this, "access granted !", Toast.LENGTH_SHORT).show();
-                    Intent = new Intent(this, menulogin);
-                else Toast.makeText(MainActivity.this, "access denied !!", Toast.LENGTH_SHORT).show();
+                    Intent menuLogin = new Intent(getApplicationContext(), menulogin.class);
+                    startActivity(menuLogin);
+                    finish();
+                } else {
+                    Toast.makeText(MainActivity.this, "access denied !!", Toast.LENGTH_SHORT).show();
 
 
-
+                }
             }
+
+
         });
-        email.setOnClickListener(this);
-        pwd.setOnClickListener(this);
-
-
     }
 }
