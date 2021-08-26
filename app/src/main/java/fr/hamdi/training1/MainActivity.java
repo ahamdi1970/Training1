@@ -6,46 +6,41 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.EditText;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
 
-    Button btn;
-    TextView email;
-    TextView pwd;
-    private Object Button;
-    private menulogin menulogin;
-    private String refemail, refpwd;
+    private Button loginButton;
+    private EditText emailEdit;
+    private EditText passwordEdit;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        btn = findViewById(R.id.Button);
-        email = findViewById(R.id.Email);
-        pwd = findViewById(R.id.Password);
+        loginButton = findViewById(R.id.login_button);
+        emailEdit = findViewById(R.id.email_edit);
+        passwordEdit = findViewById(R.id.password_edit);
 
-        btn.setOnClickListener(new View.OnClickListener() {
+        loginButton.setOnClickListener(new View.OnClickListener() {
 
 
             @Override
             public void onClick(View v) {
-                email.setOnClickListener(this);
-                pwd.setOnClickListener(this);
-                refemail = email.getText().toString();
-                refpwd = pwd.getText().toString();
+                String refemail = emailEdit.getText().toString();
+                String refpwd = passwordEdit.getText().toString();
 
 
                 if (refemail.equals("admin@admin.com") && refpwd.equals("admin")) {
-                    Toast.makeText(MainActivity.this, "access granted !", Toast.LENGTH_SHORT).show();
-                    Intent menuLogin = new Intent(getApplicationContext(), menulogin.class);
+                    Toast.makeText(MainActivity.this, getString(R.string.access_ok), Toast.LENGTH_SHORT).show();
+                    Intent menuLogin = new Intent(getApplicationContext(), MenuLoginActivity.class);
                     startActivity(menuLogin);
                     finish();
                 } else {
-                    Toast.makeText(MainActivity.this, "access denied !!", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(MainActivity.this, getString(R.string.access_ko), Toast.LENGTH_SHORT).show();
 
 
                 }
