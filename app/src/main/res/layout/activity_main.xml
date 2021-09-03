@@ -9,6 +9,15 @@
     tools:context=".MainActivity">
 
     <EditText
+        android:id="@+id/user_edit"
+        android:hint="@string/username"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:inputType="textPersonName"
+        />
+
+    <EditText
         android:id="@+id/email_edit"
         android:hint="@string/email"
         android:layout_width="match_parent"

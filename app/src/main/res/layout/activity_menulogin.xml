@@ -14,7 +14,9 @@
             android:gravity="center"
             android:layout_height="wrap_content"
             android:layout_marginTop="60dp"
-            android:text="Welcome Admin !" />
+            android:text="message"
+        />
+
 
 
 
