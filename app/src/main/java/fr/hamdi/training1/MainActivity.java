@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.Scanner;
@@ -18,6 +19,8 @@ public class MainActivity extends AppCompatActivity {
     private EditText emailEdit;
     private EditText passwordEdit;
     private EditText userName;
+    private TextView userNamelogged;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +34,7 @@ public class MainActivity extends AppCompatActivity {
         loginButton.setOnClickListener(new View.OnClickListener() {
 
 
+
             @Override
             public void onClick(View v) {
                 String refemail = emailEdit.getText().toString();
@@ -41,7 +45,9 @@ public class MainActivity extends AppCompatActivity {
                 if (refemail.equals("admin@admin.com") && refpwd.equals("admin")) {
                     Toast.makeText(MainActivity.this, getString(R.string.access_ok), Toast.LENGTH_SHORT).show();
                     Intent menuLogin = new Intent(getApplicationContext(), MenuLoginActivity.class);
-                    menuLogin.putExtra(USER_NAME,userName.getText().toString());
+                    String name =  userName.getText().toString();
+// Add the data to the intent using the key
+                    menuLogin.putExtra("name_key",name);
                     startActivity(menuLogin);
                     finish();
                 } else {

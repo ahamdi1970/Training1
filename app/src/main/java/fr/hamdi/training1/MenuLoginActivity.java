@@ -1,15 +1,17 @@
 package fr.hamdi.training1;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
+import android.widget.TextView;
+
+import androidx.appcompat.app.AppCompatActivity;
+
 
 
 public class MenuLoginActivity extends AppCompatActivity {
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -17,10 +19,22 @@ public class MenuLoginActivity extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menulogin);
-        Intent intent = getIntent();
-        String message = intent.getStringExtra(MainActivity.USER_NAME);
-        Toast.makeText(MenuLoginActivity.this, message, Toast.LENGTH_LONG).show();
-        System.out.println(message);
 
-        }
+        TextView userNamelogged;
+        userNamelogged = findViewById(R.id.user_name);
+// Getting the intent which started this activity
+        Intent intent = getIntent();
+// Get the data of the activity providing the same key value
+        String name = intent.getStringExtra("name_key");
+// Display the name in the activty menuLogin
+        name = "Welcome "+name;
+        userNamelogged.setText(name);
+
+
+
+    }
+
+
+
+
 }
