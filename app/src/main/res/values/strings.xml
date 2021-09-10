@@ -6,4 +6,18 @@
     <string name="access_ok">access granted !</string>
     <string name="access_ko">access denied !</string>
     <string name="username">Username SVP</string>
+    
+    <string-array name="football_players">
+        <item>Benzema</item>
+        <item>Griezman</item>
+        <item>Hernandez</item>
+        <item>Kante</item>
+        <item>Kimpembe</item>
+        <item>Lloris</item>
+        <item>Matuidi</item>
+        <item>Mbappe</item>
+        <item>Mendy</item>
+        <item>Pogba</item>
+        <item>Tolisso</item>
+    </string-array>
 </resources>
