@@ -2,8 +2,15 @@ package fr.hamdi.training1;
 
 import android.content.Context;
 import android.content.Intent;
+import android.nfc.Tag;
 import android.os.Bundle;
+import android.util.Log;
+import android.view.View;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -12,8 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MenuLoginActivity extends AppCompatActivity {
 
-    String s1[];
-    int images[] = {R.drawable.benzema,R.drawable.griezman,R.drawable.hernandez,R.drawable.kante,R.drawable.kimpembe,R.drawable.lloris,R.drawable.matuidi,R.drawable.mbappe,R.drawable.mendy,R.drawable.pogba,R.drawable.tolisso};
+    List<Players> = new List<mPlayersList>;
     RecyclerView recyclerView;
 
     @Override
@@ -23,7 +29,6 @@ public class MenuLoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menulogin);
 
-        s1 = getResources().getStringArray(R.array.football_players);
         recyclerView = findViewById(R.id.recyclerView);
 
         TextView userNamelogged;
@@ -36,7 +41,7 @@ public class MenuLoginActivity extends AppCompatActivity {
         name = "Welcome "+name;
         userNamelogged.setText(name);
 
-        MyAdapter myAdapter = new MyAdapter(this,s1,images);
+        MyAdapter myAdapter = new MyAdapter(playersList, this);
         recyclerView.setAdapter(myAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 

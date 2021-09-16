@@ -1,2 +1,3 @@
+include ':app:myAppTraining1'
 include ':app'
 rootProject.name = "Training1"

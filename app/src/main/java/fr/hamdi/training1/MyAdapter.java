@@ -7,20 +7,23 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.bumptech.glide.Glide;
+
+import java.util.List;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    String[] data1;
-    int[] images;
+    List<Players> playersList;
     Context context;
 
-    public MyAdapter (Context ct, String[] s1, int[] img){
-        context = ct;
-        data1 = s1;
-        images = img;
+    public MyAdapter(List<Players> playersList, Context context) {
+        this.playersList = playersList;
+        this.context = context;
     }
+
 
 
     @NonNull
@@ -35,13 +38,14 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        holder.playerName.setText(data1[position]);
-        holder.playerImage.setImageResource(images[position]);
+        holder.playerName.setText(playersList.get(position).getName());
+        //holder.playerImage.setImageResource(playersList.get(position));
+        Glide.with(this.context).load(playersList.get(position).getImages()).into(holder.playerImage);
     }
 
     @Override
     public int getItemCount() {
-        return data1.length;
+        return playersList.size();
     }
 
 
