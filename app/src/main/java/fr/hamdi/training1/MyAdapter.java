@@ -40,7 +40,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         holder.playerName.setText(playersList.get(position).getName());
         //holder.playerImage.setImageResource(playersList.get(position));
-        Glide.with(this.context).load(playersList.get(position).getImages()).into(holder.playerImage);
+        Glide.with(this.context).load(playersList.get(position).getImageURL()).into(holder.playerImage);
     }
 
     @Override

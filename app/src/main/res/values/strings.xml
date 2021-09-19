@@ -1,23 +1,7 @@
 <resources>
     <string name="app_name">Training1</string>
-    <string name="email">Email SVP</string>
-    <string name="password">Password SVP</string>
-    <string name="login">Login</string>
     <string name="access_ok">access granted !</string>
-    <string name="access_ko">access denied !</string>
-    <string name="username">Username SVP</string>
-    
-    <string-array name="football_players">
-        <item>Benzema</item>
-        <item>Griezman</item>
-        <item>Hernandez</item>
-        <item>Kante</item>
-        <item>Kimpembe</item>
-        <item>Lloris</item>
-        <item>Matuidi</item>
-        <item>Mbappe</item>
-        <item>Mendy</item>
-        <item>Pogba</item>
-        <item>Tolisso</item>
-    </string-array>
+    <string name="login">Login</string>
+
+
 </resources>
