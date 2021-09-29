@@ -2,6 +2,7 @@ package fr.hamdi.training1;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Toast.makeText(MainActivity.this, getString(R.string.access_ok), Toast.LENGTH_SHORT).show();
+                Log.d("MainActivity","login_EventButtonClicked");
                 Intent menuLogin = new Intent(getApplicationContext(), MenuLoginActivity.class);
                 startActivity(menuLogin);
                 finish();

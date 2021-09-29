@@ -16,10 +16,10 @@ import androidx.recyclerview.widget.RecyclerView;
 
 public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
-    List<Players> playersList;
+    List<Player> playersList;
     Context context;
 
-    public MyAdapter(List<Players> playersList, Context context) {
+    public MyAdapter(List<Player> playersList, Context context) {
         this.playersList = playersList;
         this.context = context;
     }
