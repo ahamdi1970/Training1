@@ -2,12 +2,12 @@ package fr.hamdi.training1;
 
 
 // classe modele de joueurs
-public class Player {
+public class Player_Model {
 
 
     String name, imageURL;
 
-    public Player(String name, String imageURL) {
+    public Player_Model(String name, String imageURL) {
         this.name = name;
         this.imageURL = imageURL;
     }
