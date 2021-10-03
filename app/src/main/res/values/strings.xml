@@ -2,6 +2,16 @@
     <string name="app_name">Training1</string>
     <string name="access_ok">access granted !</string>
     <string name="login">Login</string>
+    <string name="player_id_question">Player id</string>
+    <string name="player_name_question">Player name</string>
+    <string name="player_age_question">Player age</string>
+    <string name="player_url_question">Player url</string>
+    <string name="player_id_answer">Player ID</string>
+    <string name="player_name_answer">Player NAME</string>
+    <string name="player_age_answer">Player AGE</string>
+    <string name="player_url_answer">Player URL</string>
+    <string name="button_ok">OK</string>
+    <string name="button_cancel">cancel</string>
 
 
 </resources>
