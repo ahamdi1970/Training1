@@ -1,6 +1,7 @@
 package fr.hamdi.training1;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -56,6 +57,16 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         //holder.playerImage.setImageResource(playersList.get(position)); si utilisation d'image de drawable
         Glide.with(this.context).load(playerModelList.get(position).getImageURL()).into(holder.playerImage);
 
+        holder.parentLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //send the control to the Player_insert activity
+                Intent intent = new Intent(context,Player_Insert.class);
+                intent.putExtra("id",playerModelList.get(position).getId());
+                context.startActivity(intent);
+            }
+        });
+
 
     }
 
@@ -77,6 +88,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             playerName = itemView.findViewById(R.id.player_name);
             playerImage = itemView.findViewById(R.id.player_image);
             mDeletePlayer = itemView.findViewById(R.id.delete_player);
+            parentLayout = itemView.findViewById(R.id.player_layout);
 
             mDeletePlayer.setOnClickListener(new View.OnClickListener() {
                 @Override

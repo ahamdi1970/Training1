@@ -7,7 +7,7 @@ public class Player_Model {
     int id;
     String age, name, imageURL;
 
-    public Player_Model(int id, String age, String name, String imageURL) {
+    public Player_Model(int id, String name, String age,String imageURL) {
         this.id = id;
         this.age = age;
         this.name = name;
