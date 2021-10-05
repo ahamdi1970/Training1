@@ -12,6 +12,7 @@ import java.util.Arrays;
 import java.util.List;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -24,6 +25,7 @@ public class MenuLoginActivity extends AppCompatActivity {
     RecyclerView recyclerView;
     MyAdapter mAdapter; //faut instancier mon adaptateur
     List<Player_Model> player_modelList;
+
     private static final String TAG = "Player App"; // pour suivre les logs
     MyApplication myApplication = (MyApplication) this.getApplication();
 
@@ -38,6 +40,7 @@ public class MenuLoginActivity extends AppCompatActivity {
         buildRecyclerView();
         Log.d(TAG, "onCreate: " + player_modelList.toString());
         Toast.makeText(this, "Player count = " + player_modelList.size(), Toast.LENGTH_LONG).show();
+
 
         buttonInsert = findViewById(R.id.button_insert);
         buttonInsert.setOnClickListener(new View.OnClickListener() {

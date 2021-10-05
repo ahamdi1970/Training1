@@ -78,7 +78,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView playerName;
+        TextView playerName,dateIntegration;
         ImageView playerImage;
         public ImageView mDeletePlayer;
         ConstraintLayout parentLayout;
@@ -86,6 +86,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public MyViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             playerName = itemView.findViewById(R.id.player_name);
+            dateIntegration = itemView.findViewById ( R.id.date_integration );
             playerImage = itemView.findViewById(R.id.player_image);
             mDeletePlayer = itemView.findViewById(R.id.delete_player);
             parentLayout = itemView.findViewById(R.id.player_layout);
