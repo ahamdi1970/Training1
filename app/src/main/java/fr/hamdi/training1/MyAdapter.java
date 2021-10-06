@@ -54,6 +54,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
 
         holder.playerName.setText(playerModelList.get(position).getName());
+        holder.dateIntegration.setText(playerModelList.get(position).getDate());
         //holder.playerImage.setImageResource(playersList.get(position)); si utilisation d'image de drawable
         Glide.with(this.context).load(playerModelList.get(position).getImageURL()).into(holder.playerImage);
 
@@ -63,6 +64,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
                 //send the control to the Player_insert activity
                 Intent intent = new Intent(context,Player_Insert.class);
                 intent.putExtra("id",playerModelList.get(position).getId());
+                //intent.putExtra ("id",playerModelList.get ( position ).getDate () );
                 context.startActivity(intent);
             }
         });
@@ -86,7 +88,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
         public MyViewHolder(@NonNull View itemView, final OnItemClickListener listener) {
             super(itemView);
             playerName = itemView.findViewById(R.id.player_name);
-            dateIntegration = itemView.findViewById ( R.id.date_integration );
+            dateIntegration = itemView.findViewById ( R.id.tv_date_integration );
             playerImage = itemView.findViewById(R.id.player_image);
             mDeletePlayer = itemView.findViewById(R.id.delete_player);
             parentLayout = itemView.findViewById(R.id.player_layout);

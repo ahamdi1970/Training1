@@ -39,9 +39,9 @@ public class Player_Insert extends AppCompatActivity implements DatePickerDialog
         et_player_name = findViewById(R.id.et_player_name);
         et_player_url = findViewById(R.id.et_player_imageURL);
         tv_playerId = findViewById(R.id.tv_player_id_number);
-        tv_date = findViewById ( R.id.date_integration );
+        tv_date = findViewById ( R.id.tv_date_integration );
 
-        Button button_date = ( Button ) findViewById ( R.id.button_date_picker );
+        Button button_date = findViewById ( R.id.button_date_picker );
         button_date.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 DialogFragment datePicker = new DatePickerFragment();
@@ -65,7 +65,6 @@ public class Player_Insert extends AppCompatActivity implements DatePickerDialog
             et_player_age.setText(player.getAge());
             et_player_url.setText(player.getImageURL());
             tv_playerId.setText(String.valueOf(id));
-            tv_date.setText ( player.getDate ());
 
         }
         else {
@@ -116,6 +115,6 @@ public class Player_Insert extends AppCompatActivity implements DatePickerDialog
 
         TextView dateOfArrival = findViewById(R.id.tv_date_of_arrival);
         dateOfArrival.setText(currentDateString);
-        tv_date.setText ( currentDateString );
+        tv_date = dateOfArrival;
     }
 }
