@@ -5,14 +5,23 @@ package fr.hamdi.training1;
 public class Player_Model {
 
     int id;
-    String age, name, imageURL,date;
+    String age, name, imageURL,date,hour;
 
-    public Player_Model(int id, String name, String age,String imageURL,String date) {
+    public Player_Model(int id, String name, String age,String imageURL,String date,String hour) {
         this.id = id;
         this.age = age;
         this.name = name;
         this.imageURL = imageURL;
         this.date = date;
+        this.hour = hour;
+    }
+
+    public String getHour() {
+        return hour;
+    }
+
+    public void setHour(String hour) {
+        this.hour = hour;
     }
 
     public String getDate() {

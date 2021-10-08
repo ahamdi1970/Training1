@@ -4,13 +4,16 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.app.DatePickerDialog;
+import android.app.TimePickerDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewDebug;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.TimePicker;
 
 import java.text.DateFormat;
 import java.util.Calendar;
@@ -18,13 +21,13 @@ import java.util.List;
 
 // this form serves to create a new player or edit a player
 
-public class Player_Insert extends AppCompatActivity implements DatePickerDialog.OnDateSetListener {
+public class Player_Insert extends AppCompatActivity implements DatePickerDialog.OnDateSetListener, TimePickerDialog.OnTimeSetListener {
 
     Button buttonOk, buttonCancel;
     List<Player_Model> player_modelList;
     MyApplication myApplication = (MyApplication) this.getApplication();
     EditText et_player_age, et_player_name, et_player_url;
-    TextView tv_playerId,tv_date;
+    TextView tv_playerId,tv_date,tv_hour;
     int id;
 
     @Override
@@ -40,6 +43,7 @@ public class Player_Insert extends AppCompatActivity implements DatePickerDialog
         et_player_url = findViewById(R.id.et_player_imageURL);
         tv_playerId = findViewById(R.id.tv_player_id_number);
         tv_date = findViewById ( R.id.tv_date_integration );
+        tv_hour = findViewById ( R.id.tv_hour_integration );
 
         Button button_date = findViewById ( R.id.button_date_picker );
         button_date.setOnClickListener(new View.OnClickListener() {
@@ -48,6 +52,16 @@ public class Player_Insert extends AppCompatActivity implements DatePickerDialog
                 datePicker.show ( getSupportFragmentManager (), "date picker");
             }
         });
+
+        Button button_hour = findViewById ( R.id.button_hour_picker );
+        button_hour.setOnClickListener ( new View.OnClickListener () {
+            @Override
+            public void onClick(View v) {
+                android.app.DialogFragment timePicker = new TimePickerFragment ();
+                timePicker.show(getFragmentManager (),"time picker");
+            }
+        } );
+
 
         Intent intent = getIntent();
         id = intent.getIntExtra("id",-1);
@@ -77,14 +91,14 @@ public class Player_Insert extends AppCompatActivity implements DatePickerDialog
 
                 if (id >= 0){
                     //update mode
-                    Player_Model updatedPlayer = new Player_Model(id,et_player_name.getText().toString(),et_player_age.getText().toString(),et_player_url.getText().toString(),tv_date.getText ().toString ());
+                    Player_Model updatedPlayer = new Player_Model(id,et_player_name.getText().toString(),et_player_age.getText().toString(),et_player_url.getText().toString(),tv_date.getText().toString(),tv_hour.getText().toString());
                     player_modelList.set(id,updatedPlayer);
                 }
                 else {
                     // add new player
                     // create Player object
                     int nextId = myApplication.getNextId();
-                    Player_Model newPlayer = new Player_Model(nextId,et_player_name.getText().toString(),et_player_age.getText().toString(),et_player_url.getText().toString(),tv_date.getText ().toString ());
+                    Player_Model newPlayer = new Player_Model(nextId,et_player_name.getText().toString(),et_player_age.getText().toString(),et_player_url.getText().toString(),tv_date.getText ().toString (),tv_hour.getText().toString());
 
                     // add the object to the global list of players
                     player_modelList.add(newPlayer);
@@ -117,4 +131,14 @@ public class Player_Insert extends AppCompatActivity implements DatePickerDialog
         dateOfArrival.setText(currentDateString);
         tv_date = dateOfArrival;
     }
+
+    @Override
+    public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+        String timeString =  hourOfDay +":"+ minute; // <-- just for example, you'll want to do better time-formatting here
+
+        TextView hourOfArrival = findViewById(R.id.tv_hour_of_arrival);
+        hourOfArrival.setText(timeString);
+        tv_hour = hourOfArrival;
+    }
+
 }

@@ -6,6 +6,28 @@
     android:layout_height="match_parent"
     tools:context=".Player_Insert">
 
+    <Button
+        android:id="@+id/button_hour_picker"
+        android:layout_width="139dp"
+        android:layout_height="55dp"
+        android:layout_marginEnd="36dp"
+        android:text="open hour picker"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/tv_hour_of_arrival" />
+
+    <TextView
+        android:id="@+id/tv_hour_of_arrival"
+        android:layout_width="147dp"
+        android:layout_height="46dp"
+        android:layout_marginStart="8dp"
+        android:gravity="center"
+        android:text="hour of arrival"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toStartOf="@+id/button_date_picker"
+        app:layout_constraintHorizontal_bias="0.232"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_date_of_arrival" />
+
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"

@@ -51,10 +51,11 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
 
         // get the player at position
-
+        // ajoute le holder pour hour et date d'integration
 
         holder.playerName.setText(playerModelList.get(position).getName());
         holder.dateIntegration.setText(playerModelList.get(position).getDate());
+        holder.hourIntegration.setText (playerModelList.get(position).getHour());
         //holder.playerImage.setImageResource(playersList.get(position)); si utilisation d'image de drawable
         Glide.with(this.context).load(playerModelList.get(position).getImageURL()).into(holder.playerImage);
 
@@ -80,7 +81,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
 
     public class MyViewHolder extends RecyclerView.ViewHolder {
 
-        TextView playerName,dateIntegration;
+        TextView playerName,dateIntegration,hourIntegration;
         ImageView playerImage;
         public ImageView mDeletePlayer;
         ConstraintLayout parentLayout;
@@ -89,6 +90,7 @@ public class MyAdapter extends RecyclerView.Adapter<MyAdapter.MyViewHolder> {
             super(itemView);
             playerName = itemView.findViewById(R.id.player_name);
             dateIntegration = itemView.findViewById ( R.id.tv_date_integration );
+            hourIntegration = itemView.findViewById ( R.id.tv_hour_integration );
             playerImage = itemView.findViewById(R.id.player_image);
             mDeletePlayer = itemView.findViewById(R.id.delete_player);
             parentLayout = itemView.findViewById(R.id.player_layout);
